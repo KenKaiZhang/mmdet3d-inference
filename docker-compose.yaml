@@ -1,0 +1,18 @@
+services:
+  mmdet3d-inference:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: mmdet3d-inference
+    runtime: nvidia
+    volumes:
+      - ./:/workspace
+      - /mnt/d/Datasets/:/workspace/datasets
+    command: /bin/bash -c "sleep infinity"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

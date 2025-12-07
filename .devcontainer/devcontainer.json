@@ -1,0 +1,19 @@
+{
+	"name": "Object Detection",
+	"dockerComposeFile": "../docker-compose.yaml",
+	"service": "mmdet3d-inference",
+	"workspaceFolder": "/workspace",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"njpwerner.autodocstring",
+				"ms-azuretools.vscode-docker"
+			]
+		}
+	},
+	"forwardPorts": [],
+	"postCreateCommand": "pip install -r requirements.txt",
+	"remoteUser": "root"
+}

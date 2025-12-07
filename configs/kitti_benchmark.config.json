@@ -1,0 +1,32 @@
+{
+    "dataset_name": "KITTI Training Subset",
+    "dataset_type": "kitti",
+    "dataset_path": "./datasets/KITTI/training/",
+    "frame_number": "-1",
+    "out_dir": "./benchmark_results/KITTI",
+    "device": "cuda:0",
+    "score_threshold": 0.3,
+    "modality": "lidar",
+    "create_video": true,
+    "video_fps": 5,
+    "models": [
+        {
+            "name": "PV RCNN",
+            "modality": "lidar",
+            "config": "models/pv_rcnn_8xb2-80e_kitti-3d-3class.py",
+            "checkpoint": "models/pv_rcnn_8xb2-80e_kitti-3d-3class_20221117_234428-b384d22f.pth"
+        },
+        {
+            "name": "PointPillars",
+            "modality": "lidar",
+            "config": "models/pointpillars_hv_secfpn_8xb6-160e_kitti-3d-car.py",
+            "checkpoint": "models/hv_pointpillars_secfpn_6x8_160e_kitti-3d-car_20220331_134606-d42d15ed.pth"
+        }
+    ],
+    "comments": {
+        "dataset_type": "Options: 'kitti', 'waymokitti', 'any'",
+        "frame_number": "Use '-1' for all frames, or specific frame like '000008'",
+        "modality": "Options: 'lidar', 'mono', 'multi-modal'",
+        "models": "Add as many models as needed for comparison"
+    }
+}
